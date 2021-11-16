@@ -1,14 +1,14 @@
 import More from "../component/More";
 import Acceuil from "../component/Acceuil";
-import TestContent from "../component/TestContent";
 import { Route,Routes} from "react-router";
+import Personnages from "../component/Personnages";
 export default function Main(){
     return(
-         <main>
+         <main className="d-flex justify-content-center my-5">
                 <Routes>
-                    <Route exact path="/" element={<Acceuil />}/>
+                    <Route path="/" element={<Acceuil />}/>
                     <Route path="/More" element={<More />}/>
-                    <Route path="/TestContent" element={<TestContent />}/>
+                    <Route path="/Personnages" element={<Personnages />}/>
                 </Routes>
         </main> 
     );

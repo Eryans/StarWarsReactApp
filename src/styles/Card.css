@@ -1,0 +1,7 @@
+.card-style{
+    padding: 3em;
+    margin: 3em;
+    background-color: yellow;
+    border: 2px solid orange;
+    border-radius: 5px;
+}
