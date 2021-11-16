@@ -22,38 +22,46 @@ const Default = {
 
 export default function Personnages(){
     const [characters,setCharacters] = useState(Default);
-    const [charId,setCharId] = useState(2); // Setting ID to 1 start it at 0 ? 
+    const [charId,setCharId] = useState(1);
     const [url,setUrl] = useState(`https://swapi.dev/api/people/1`);
     const [max,setMax] = useState(0);
     // Global Content API Fetch
     useEffect(() => {
         fetch(`https://swapi.dev/api/people`).then((response) => response.json())
         .then(function(data){
-        console.log(data);
-        setMax(data.count);
-    });
+            console.log(data);
+            setMax(data.count);
+        });
     },[]);
     // Individual Content API Fetch
     useEffect(() => {
         fetch(url).then((response) => response.json())
         .then(function(data){
-        setCharacters(data);
-    });
-    });
+            setCharacters(data);
+            });
+        }
+    ,[charId,url]);
 
     function nextChar(){
         setCharId(charId + 1);
+        (charId >= max) && setCharId(1);
         setUrl(`https://swapi.dev/api/people/${charId}`);
         console.log(url);
     }
-
+    function prevChar(){
+        setCharId(charId - 1);
+        (charId <= 1) && setCharId(82);
+        setUrl(`https://swapi.dev/api/people/${charId}`);
+        console.log(url);
+    }
     return (
         <article className ="card-style">
-            <h2>Personnages</h2>
+            <h2>Personnages </h2>
             <ul>
-            {Object.keys(characters).map(x => <li>{x} : {characters[x]}</li>)}
+            {Object.keys(characters).map((x,i) => <li key={i}>{x} : {characters[x]}</li>)}
             </ul>
-            <button onClick={nextChar}>Next</button>
+            <button onClick={() => prevChar()}>Prev</button>
+            <button onClick={() => nextChar()}>Next</button>
         </article>
     );
 }
