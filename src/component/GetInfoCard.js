@@ -40,14 +40,10 @@ export default function GetInfoCard(props){
         console.log(url);
     }
     function handleChange(e){
-        setItemID(e.target.value);
-        console.log(itemID);
-    }
-    function handleSubmit(e){
-        e.preventDefault();
-        itemID > max && setItemID(max);
-        itemID < 1 && setItemID(1);
-        (itemID && regex.test(itemID)) ? setUrl(`https://swapi.dev/api/people/${parseInt(itemID)}`, setwrongInput(false)): setwrongInput(true);
+        if (e.target.value){
+            setUrl(props.URL + e.target.value);
+            setItemID(parseInt(e.target.value)); 
+        }
     }
     return (
         <article className ="card-style">
@@ -55,9 +51,7 @@ export default function GetInfoCard(props){
             {
                 (props.form) &&
                 <form>
-                    <input type="text" pattern="\d" onChange={handleChange} value={itemID}/>
-                    {(wrongInput) && <p>Numbers only</p>}
-                    <input type="submit" onClick={handleSubmit} value="Change"/>
+                    <input type="text" pattern="\d" onInput={handleChange} value={itemID}/>
                 </form>
             }
             <ul>
