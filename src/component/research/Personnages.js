@@ -1,5 +1,5 @@
-import "../styles/Card.css"
-import GetInfoCard from "./GetInfoCard";
+import "../../styles/Card.css"
+import GetInfoCard from "../GetInfoCard";
 
 export default function Personnages(){
     return(

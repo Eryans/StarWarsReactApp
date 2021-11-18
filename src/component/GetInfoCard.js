@@ -16,7 +16,7 @@ export default function GetInfoCard(props){
             console.log(data);
             setMax(data.count+1); // Adding 1 to max because API data is outdated
         });
-    },[]); 
+    },[props.URL]); 
     // Individual Content API Fetch
     useEffect(() => {
         fetch(url).then((response) => response.json())
@@ -28,7 +28,8 @@ export default function GetInfoCard(props){
 
     function handleChange(e){
         regex.test(e.target.value) && setItemID(e.target.value);
-        if (e.target.value){
+        e.target.value > max && setItemID(max);
+        if (e.target.value && e.target.value <= max){
             setUrl(props.URL + e.target.value);
         }
     }
@@ -38,7 +39,7 @@ export default function GetInfoCard(props){
             {
                 (props.form) &&
                 <form onSubmit={(e) => e.preventDefault()}>
-                    <input type="text" onInput={handleChange}  value={itemID}/>
+                    <input type="text" onInput={handleChange} onFocus={(e) => e.target.select()} value={itemID}/>
                 </form>
             }
             <ul>

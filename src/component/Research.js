@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../styles/Card.css"
 import { useEffect, useState } from "react";
 
-export default function More(){
+export default function Research(){
     
     const [data,setData] = useState("");
     const LINKS = ["/Personnages","/Planetes","/Films","/Especes","/Vehicules","/Vaisseaux"];
