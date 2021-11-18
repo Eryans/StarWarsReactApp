@@ -26,21 +26,8 @@ export default function GetInfoCard(props){
         }
     ,[url]);
 
-    function nextItem(){
-        typeof itemID != "number" && setItemID(parseInt(itemID));
-        (itemID > max) ? setItemID(1) : setItemID(itemID + 1);
-        console.log(typeof itemID);
-        setUrl(props.URL + `${parseInt(itemID)+1}`);
-        console.log(url);
-    }
-    function prevItem(){
-        (itemID < 1) ? setItemID(max) : setItemID(itemID - 1);
-        setUrl(props.URL + `${parseInt(itemID)-1}`);
-        console.log(url);
-    }
     function handleChange(e){
-        e.preventDefault();
-        regex.test(e.target.value) && setItemID(e.target.value); 
+        regex.test(e.target.value) && setItemID(e.target.value);
         if (e.target.value){
             setUrl(props.URL + e.target.value);
         }
@@ -50,18 +37,13 @@ export default function GetInfoCard(props){
             <h2>{props.title}</h2>
             {
                 (props.form) &&
-                <form>
-                    <input type="text" onInput={handleChange} onSubmit={handleChange} value={itemID}/>
+                <form onSubmit={(e) => e.preventDefault()}>
+                    <input type="text" onInput={handleChange}  value={itemID}/>
                 </form>
             }
             <ul>
             {(data) ? Object.keys(data).map((x,i) => <li key={i}>{x} : {data[x]}</li>) : <p>{DefaultMessage}</p>}
             </ul>
-
-            <div>
-            <button onClick={prevItem}>Prev</button>
-            <button onClick={nextItem}>Next</button>
-            </div>
         </article>
     );
 }
