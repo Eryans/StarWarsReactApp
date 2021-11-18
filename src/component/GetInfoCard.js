@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 
 
-
 export default function GetInfoCard(props){
     const DefaultMessage = "LOADING...";
-    const [wrongInput,setwrongInput] = useState(false);
     const regex = new RegExp(`^[0-9]*$`);
     const [data,setData] = useState("");
     const [itemID,setItemID] = useState(props.ID);
@@ -29,6 +27,7 @@ export default function GetInfoCard(props){
     ,[url]);
 
     function nextItem(){
+        typeof itemID != "number" && setItemID(parseInt(itemID));
         (itemID > max) ? setItemID(1) : setItemID(itemID + 1);
         console.log(typeof itemID);
         setUrl(props.URL + `${parseInt(itemID)+1}`);
@@ -40,9 +39,10 @@ export default function GetInfoCard(props){
         console.log(url);
     }
     function handleChange(e){
+        e.preventDefault();
+        regex.test(e.target.value) && setItemID(e.target.value); 
         if (e.target.value){
             setUrl(props.URL + e.target.value);
-            setItemID(parseInt(e.target.value)); 
         }
     }
     return (
@@ -51,7 +51,7 @@ export default function GetInfoCard(props){
             {
                 (props.form) &&
                 <form>
-                    <input type="text" pattern="\d" onInput={handleChange} value={itemID}/>
+                    <input type="text" onInput={handleChange} onSubmit={handleChange} value={itemID}/>
                 </form>
             }
             <ul>
