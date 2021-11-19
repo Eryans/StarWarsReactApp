@@ -17,7 +17,7 @@ export default function Research(){
         <section className="card-style">
             <h2>Recherche par ID</h2>
             <ul>
-            {Object.keys(data).map((x,i) => <li key={i}> <Link to={LINKS[i]}> {x} </Link> </li>)}
+            {Object.keys(data).map((x,i) => <li key={i}> <Link to={LINKS[i]+"ID"}> {x} </Link> </li>)}
             </ul>
         </section>
     );

@@ -16,14 +16,20 @@ export default function Main(){
                     <Route path="/" element={<Acceuil />}/>
                     {/*--------------------------------- Research by ID part ---------------------------------*/}
                     <Route path="/Recherche" element={<Research />}/>
-                    <Route path="/Personnages" element={<Personnages />}/>
+                    <Route path="/PersonnagesID" element={<Personnages isID={true}/>}/>
+                    <Route path="/PlanetesID" element={<Planetes />}/>
+                    <Route path="/FilmsID" element={<Films />}/>
+                    <Route path="/EspecesID" element={<Especes />}/>
+                    <Route path="/VehiculesID" element={<Vehicules />}/>
+                    <Route path="/VaisseauxID" element={<Vaisseaux />}/>
+                    {/*--------------------------------- Research by ID part ---------------------------------*/}
+                    <Route path="/Contenu" element={<Content />}/>
+                    <Route path="/Personnages" element={<Personnages isID={false}/>}/>
                     <Route path="/Planetes" element={<Planetes />}/>
                     <Route path="/Films" element={<Films />}/>
                     <Route path="/Especes" element={<Especes />}/>
                     <Route path="/Vehicules" element={<Vehicules />}/>
                     <Route path="/Vaisseaux" element={<Vaisseaux />}/>
-                    {/*--------------------------------- Research by ID part ---------------------------------*/}
-                    <Route path="/Contenu" element={<Content />}/>
                 </Routes>
         </main> 
     );
