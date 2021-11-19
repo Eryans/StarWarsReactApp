@@ -7,6 +7,7 @@ import Especes from "../component/research/Especes";
 import Vehicules from "../component/research/Vehicules";
 import Vaisseaux from "../component/research/Vaisseaux";
 import Research from "../component/Research";
+import Content from "../component/Content";
 
 export default function Main(){
     return(
@@ -22,6 +23,7 @@ export default function Main(){
                     <Route path="/Vehicules" element={<Vehicules />}/>
                     <Route path="/Vaisseaux" element={<Vaisseaux />}/>
                     {/*--------------------------------- Research by ID part ---------------------------------*/}
+                    <Route path="/Contenu" element={<Content />}/>
                 </Routes>
         </main> 
     );
