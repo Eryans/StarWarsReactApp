@@ -17,19 +17,19 @@ export default function Main(){
                     {/*--------------------------------- Research by ID part ---------------------------------*/}
                     <Route path="/Recherche" element={<Research />}/>
                     <Route path="/PersonnagesID" element={<Personnages isID={true}/>}/>
-                    <Route path="/PlanetesID" element={<Planetes />}/>
-                    <Route path="/FilmsID" element={<Films />}/>
-                    <Route path="/EspecesID" element={<Especes />}/>
-                    <Route path="/VehiculesID" element={<Vehicules />}/>
-                    <Route path="/VaisseauxID" element={<Vaisseaux />}/>
+                    <Route path="/PlanetesID" element={<Planetes isID={true}/>}/>
+                    <Route path="/FilmsID" element={<Films isID={true}/>}/>
+                    <Route path="/EspecesID" element={<Especes isID={true}/>}/>
+                    <Route path="/VehiculesID" element={<Vehicules isID={true}/>}/>
+                    <Route path="/VaisseauxID" element={<Vaisseaux isID={true}/>}/>
                     {/*--------------------------------- Research by ID part ---------------------------------*/}
                     <Route path="/Contenu" element={<Content />}/>
                     <Route path="/Personnages" element={<Personnages isID={false}/>}/>
-                    <Route path="/Planetes" element={<Planetes />}/>
-                    <Route path="/Films" element={<Films />}/>
-                    <Route path="/Especes" element={<Especes />}/>
-                    <Route path="/Vehicules" element={<Vehicules />}/>
-                    <Route path="/Vaisseaux" element={<Vaisseaux />}/>
+                    <Route path="/Planetes" element={<Planetes isID={false}/>}/>
+                    <Route path="/Films" element={<Films isID={false}/>}/>
+                    <Route path="/Especes" element={<Especes isID={false}/>}/>
+                    <Route path="/Vehicules" element={<Vehicules isID={false}/>}/>
+                    <Route path="/Vaisseaux" element={<Vaisseaux isID={false}/>}/>
                 </Routes>
         </main> 
     );

@@ -43,7 +43,7 @@ export default function GetInfoCard(props){
                 </form>
             }
             <ul>
-            {(data) ? Object.keys(data).map((x,i) => <li key={i}>{x} : {data[x]}</li>) : <p>{DefaultMessage}</p>}
+            {(data) ? Object.keys(data).map((x,i) => <li key={i}><b>{x}</b> : {data[x]}</li>) : <p>{DefaultMessage}</p>}
             </ul>
         </article>
     );

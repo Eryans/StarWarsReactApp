@@ -1,8 +1,13 @@
 import "../../styles/Card.css"
+import GetGlobalInfoCard from "../GetGlobalInfoCard";
 import GetInfoCard from "../GetInfoCard";
 
-export default function Films(){
+export default function Films(props){
+    const url = "https://swapi.dev/api/films/";
     return(
-        <GetInfoCard URL="https://swapi.dev/api/films/" title="Films" form={true} ID={1}/>
+        (props.isID) ?
+        <GetInfoCard URL={url} title="Film" form={true} ID={1}/>
+        :
+        <GetGlobalInfoCard URL={url} title= "Films"/>
     );
 }
